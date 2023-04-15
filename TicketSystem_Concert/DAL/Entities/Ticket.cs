@@ -9,7 +9,7 @@ namespace TicketSystem_Concert.DAL.Entities
 		[Key]
 		[MaxLength(100)]
 		[Required(ErrorMessage = "El campo [0] es necesario.")]
-		public string? Id { get; set; }
+		public string Id { get; set; }
 
 		[Display(Name = "Fecha de uso de la boleta.")]
 		public DateTime? UseData { get; set; }
@@ -18,7 +18,7 @@ namespace TicketSystem_Concert.DAL.Entities
 		public bool? IsUsed { get; set; }
 
 		[Display(Name = "Portería de ingreso.")]
-		public bool? EntranceGate { get; set; }
+		public string? EntranceGate { get; set; }
 		#endregion
 	}
 }

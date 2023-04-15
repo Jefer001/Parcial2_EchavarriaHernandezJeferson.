@@ -1,0 +1,44 @@
+﻿@model TicketSystem_Concert.DAL.Entities.Ticket
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Ticket</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="UseData" class="control-label"></label>
+                <input asp-for="UseData" class="form-control" />
+                <span asp-validation-for="UseData" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsUsed" class="control-label"></label>
+                <input asp-for="IsUsed" class="form-control" />
+                <span asp-validation-for="IsUsed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EntranceGate" class="control-label"></label>
+                <input asp-for="EntranceGate" class="form-control" />
+                <span asp-validation-for="EntranceGate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
