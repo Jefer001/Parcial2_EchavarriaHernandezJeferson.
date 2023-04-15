@@ -57,8 +57,6 @@ namespace TicketSystem_Concert.Controllers
 				try
 				{
 					ticket.UseData = DateTime.Now;
-					ticket.IsUsed = false;
-					ticket.EntranceGate = null;
 					_context.Add(ticket);
 					await _context.SaveChangesAsync();
 					return RedirectToAction(nameof(Index));
@@ -80,7 +78,7 @@ namespace TicketSystem_Concert.Controllers
 		}
 
 		// GET: Tickets/Edit/5
-		public async Task<IActionResult> Edit(Guid? id)
+		public async Task<IActionResult> Edit(string? id)
 		{
 			if (id == null || _context.Tickets == null) return NotFound();
 
@@ -103,8 +101,6 @@ namespace TicketSystem_Concert.Controllers
 				try
 				{
 					ticket.UseData = DateTime.Now;
-					ticket.IsUsed = false;
-					ticket.EntranceGate = null;
 					_context.Update(ticket);
 					await _context.SaveChangesAsync();
 					return RedirectToAction(nameof(Index));
@@ -147,10 +143,8 @@ namespace TicketSystem_Concert.Controllers
 		[ValidateAntiForgeryToken]
 		public async Task<IActionResult> DeleteConfirmed(string id)
 		{
-			if (_context.Tickets == null)
-			{
-				return Problem("Entity set 'DataBaseContext.Tickets'  is null.");
-			}
+			if (_context.Tickets == null) return Problem("Entity set 'DataBaseContext.Tickets'  is null.");
+
 			var ticket = await _context.Tickets.FindAsync(id);
 			if (ticket != null)
 			{
@@ -159,11 +153,6 @@ namespace TicketSystem_Concert.Controllers
 
 			await _context.SaveChangesAsync();
 			return RedirectToAction(nameof(Index));
-		}
-
-		private bool TicketExists(string id)
-		{
-			return (_context.Tickets?.Any(e => e.Id == id)).GetValueOrDefault();
 		}
 	}
 }
