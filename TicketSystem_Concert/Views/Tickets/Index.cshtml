@@ -11,7 +11,6 @@
     <a asp-action="Create" class="btn btn-outline-primary">Boleta</a>
 </p>
 
-
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-default">
@@ -23,6 +22,9 @@
                     <thead>
                         <tr>
                             <th>
+                                @Html.DisplayNameFor(model => model.Id)
+                            </th>
+                            @*<th>
                                 @Html.DisplayNameFor(model => model.UseData)
                             </th>
                             <th>
@@ -30,7 +32,7 @@
                             </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.EntranceGate)
-                            </th>
+                            </th>*@
                             <th></th>
                         </tr>
                     </thead>
@@ -39,6 +41,9 @@
                         {
                             <tr>
                                 <td>
+                                    @Html.DisplayFor(modelItem => ticket.Id)
+                                </td>
+                                @*<td>
                                     @Html.DisplayFor(modelItem => ticket.UseData)
                                 </td>
                                 <td>
@@ -46,7 +51,7 @@
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => ticket.EntranceGate)
-                                </td>
+                                </td>*@
                                 <td>
                                     <a asp-action="Edit" asp-route-id="@ticket.Id" class="btn btn-outline-warning">Editar</a>
                                     <a asp-action="Details" asp-route-id="@ticket.Id" class="btn btn-outline-info">Detalles</a>
