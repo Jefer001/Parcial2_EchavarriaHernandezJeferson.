@@ -7,10 +7,6 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css" />
 <h1>Concierto</h1>
 
-<p>
-    <a asp-action="Create" class="btn btn-outline-primary">Boleta</a>
-</p>
-
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-default">
@@ -18,20 +14,11 @@
                 <h3 class="panel-title">Bichota</h3>
             </div>
             <div class="panel-body">
-                <table class="table table-hover table-responsive table-striped" id="CountryTable">
+                <table class="table table-hover table-responsive table-striped" id="TicketTable">
                     <thead>
                         <tr>
                             <th>
                                 @Html.DisplayNameFor(model => model.Id)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.UseData)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.IsUsed)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.EntranceGate)
                             </th>
                             <th></th>
                         </tr>
@@ -44,18 +31,9 @@
                                     @Html.DisplayFor(modelItem => ticket.Id)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => ticket.UseData)
-                                </td>
-                                <td>
-                                     @Html.DisplayFor(modelItem => ticket.IsUsed)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => ticket.EntranceGate)
-                                </td>
-                                <td>
-                                    <a asp-action="Edit" asp-route-id="@ticket.Id" class="btn btn-outline-warning">Editar</a>
-                                    <a asp-action="Details" asp-route-id="@ticket.Id" class="btn btn-outline-info">Detalles</a>
-                                    <a asp-action="Delete" asp-route-id="@ticket.Id" class="btn btn-outline-danger">Eliminar</a>
+                                    <div class="d-grid gap-2 col-8 mx-auto">
+                                      <a asp-action="Edit" asp-route-id="@ticket.Id" class="btn btn-outline-warning">Registrar</a>
+                                    </div>
                                 </td>
                             </tr>
                         }
@@ -74,13 +52,12 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#CountryTable').DataTable({
+            $('#TicketTable').DataTable({
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
                 },
                 "aLengthMenu": [
-                    [5, 25, 50, 100, 200, -1],
-                    [5, 25, 50, 100, 200, "Todos"]
+                    [1],[1]
                 ]
             });
         });

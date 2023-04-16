@@ -5,7 +5,7 @@
 namespace TicketSystem_Concert.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialBD : Migration
+    public partial class NewDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

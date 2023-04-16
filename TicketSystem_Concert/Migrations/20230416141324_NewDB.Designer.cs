@@ -12,8 +12,8 @@ using TicketSystem_Concert.DAL;
 namespace TicketSystem_Concert.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    [Migration("20230415175848_InitialBD")]
-    partial class InitialBD
+    [Migration("20230416141324_NewDB")]
+    partial class NewDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

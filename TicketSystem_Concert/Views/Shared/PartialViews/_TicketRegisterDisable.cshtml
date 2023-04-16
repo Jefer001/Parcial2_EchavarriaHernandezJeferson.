@@ -2,12 +2,17 @@
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="input-group mb-3">
         <label asp-for="Id" class="input-group-text"></label>
-        <input asp-for="Id" class="form-control" />
+        <input asp-for="Id" class="form-control" disabled/>
+        <span asp-validation-for="Id" class="text-danger"></span>
+    </div>
+    <div class="input-group mb-3">
+        <label asp-for="UseData" class="input-group-text"></label>
+        <input asp-for="UseData" class="form-control" disabled/>
         <span asp-validation-for="Id" class="text-danger"></span>
     </div>
     <div class="input-group">
         <label asp-for="IsUsed" class="input-group-text"></label>
-        <select asp-for="IsUsed" class="form-select">
+        <select asp-for="IsUsed" class="form-select" disabled>
                 <option value="false">No</option>
                 <option value="true">Si</option>
             <span asp-validation-for="IsUsed" class="text-danger"></span>
@@ -16,7 +21,7 @@
     <br />
     <div class="input-group">
         <label asp-for="EntranceGate" class="input-group-text"></label>
-        <select asp-for="EntranceGate" class="form-select">
+        <select asp-for="EntranceGate" class="form-select" disabled>
             <option selected>Seleccione</option>
             <option value="Norte">Norte</option>
             <option value="Sur">Sur</option>
@@ -25,6 +30,7 @@
             <span asp-validation-for="EntranceGate" class="text-danger"></span>
         </select>
     </div>
+    
 
 
     
