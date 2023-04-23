@@ -12,14 +12,24 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <input type="hidden" asp-for="Id" />
-            <input type="hidden" asp-for="IsUsed" />
-           
-            <partial name="../Shared/PartialViews/_TicketRegister" />
-            <br />
-            <div class="form-group">
-                <input type="submit" value="Registrar" class="btn btn-outline-primary" />
-                <a asp-action="Index" class="btn btn-outline-success">Regresar</a>
-            </div>
+            
+            @if (Model.IsUsed == false)
+            {
+                <partial name="../Shared/PartialViews/_TicketRegister" />
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Registrar" class="btn btn-outline-primary" />
+                    <a asp-action="Index" class="btn btn-outline-success">Regresar</a>
+                </div>
+            }
+            else
+            {
+                <partial name="../Shared/PartialViews/_TicketRegisterDisable" />
+                <br />
+                <div class="form-group">
+                    <a asp-action="Index" class="btn btn-outline-success">Regresar</a>
+                </div>
+            }
         </form>
     </div>
 </div>

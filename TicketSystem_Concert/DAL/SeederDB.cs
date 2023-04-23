@@ -27,11 +27,18 @@ namespace TicketSystem_Concert.DAL
 		#region Private methods
 		private async Task PopulateTicketsAsync()
 		{
+			int lote = 10000;
+
 			if (!_context.Tickets.Any())
 			{
 				for (int x = 0; x < 50000; x++)
 				{
 					_context.Tickets.Add(new Ticket { Id = $"ConBicho{x}", UseData = null, IsUsed = false, EntranceGate = null });
+
+					if (x % lote == 0)
+					{
+                        await _context.SaveChangesAsync();
+                    }
 				}
 			}
 		}

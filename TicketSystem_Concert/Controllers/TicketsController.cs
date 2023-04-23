@@ -22,19 +22,6 @@ namespace TicketSystem_Concert.Controllers
 						Problem("Entity set 'DataBaseContext.Tickets'  is null.");
 		}
 
-		// GET: Tickets/Details/5
-		public async Task<IActionResult> Details(string? id)
-		{
-			if (id == null || _context.Tickets == null) return NotFound();
-
-			var ticket = await _context.Tickets
-				.FirstOrDefaultAsync(t => t.Id == id);
-
-			if (ticket == null) return NotFound();
-
-			return View(ticket);
-		}
-
 		// GET: Tickets/Edit/5
 		public async Task<IActionResult> Edit(string? id)
 		{
@@ -43,11 +30,6 @@ namespace TicketSystem_Concert.Controllers
 			var ticket = await _context.Tickets.FindAsync(id);
 
 			if (ticket == null) return NotFound();
-
-			if (id == ticket.Id && ticket.IsUsed == true)
-			{
-				_ = Details(id);
-			}
 
 			return View(ticket);
 		}
@@ -64,7 +46,7 @@ namespace TicketSystem_Concert.Controllers
 				try
 				{
 					ticket.UseData = DateTime.Now;
-					//ticket.IsUsed = true;
+					ticket.IsUsed = true;
 					_context.Update(ticket);
 					await _context.SaveChangesAsync();
 					return RedirectToAction(nameof(Index));
